@@ -5,11 +5,791 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Compassionate Funeral & Memorial Services</title>
   <meta name="description" content="Compassionate funeral and memorial services with clear guidance, transparent pricing, and 24/7 support." />
-  <!-- Content trimmed for brevity in this example; full content should be inserted -->
-  <p>Your full HTML content has been placed here. Replace this placeholder with the complete version.</p>
+
+  <style>
+    :root {
+      --primary: #455a64;
+      --primary-dark: #263238;
+      --accent: #90a4ae;
+      --background: #f5f6f7;
+      --text-main: #37474f;
+      --text-muted: #607d8b;
+      --white: #ffffff;
+      --danger: #c62828;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      color: var(--text-main);
+      background-color: var(--background);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, #263238, #455a64);
+      color: var(--white);
+      padding: 1rem 1.25rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo-area h1 {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .logo-area p {
+      margin: 0.2rem 0 0;
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    .header-contact {
+      text-align: right;
+      font-size: 0.9rem;
+    }
+
+    .header-contact .phone {
+      font-size: 1rem;
+      font-weight: 600;
+      display: block;
+    }
+
+    .badge-24-7 {
+      display: inline-block;
+      margin-top: 0.25rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background-color: rgba(255, 255, 255, 0.12);
+      font-size: 0.8rem;
+    }
+
+    .hero {
+      background-color: #eceff1;
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      grid-gap: 2rem;
+      align-items: start;
+    }
+
+    .hero-main h2 {
+      font-size: 2rem;
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      color: var(--primary-dark);
+    }
+
+    .hero-main p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: var(--text-muted);
+    }
+
+    .hero-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .hero-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-list span.bullet {
+      margin-top: 0.25rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.25rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.15s ease;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--white);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--primary-dark);
+      border: 1px solid rgba(69, 90, 100, 0.4);
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-note {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .hero-form-card {
+      background-color: var(--white);
+      border-radius: 1rem;
+      padding: 1.5rem 1.25rem;
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero-form-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.4rem;
+      font-size: 1.15rem;
+      color: var(--primary-dark);
+    }
+
+    .hero-form-card p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .form-group {
+      margin-bottom: 0.75rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 0.25rem;
+      color: var(--text-main);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.6rem 0.7rem;
+      border-radius: 0.5rem;
+      border: 1px solid #cfd8dc;
+      font-size: 0.9rem;
+      font-family: inherit;
+      transition: border 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+      background-color: #fafafa;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px rgba(69, 90, 100, 0.16);
+      background-color: #ffffff;
+    }
+
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .helper-text {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    section {
+      padding: 2.5rem 1.25rem;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: var(--primary-dark);
+    }
+
+    .section-heading p {
+      margin: 0.4rem auto 0;
+      max-width: 540px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-gap: 1.5rem;
+    }
+
+    .card {
+      background-color: var(--white);
+      border-radius: 1rem;
+      padding: 1.25rem;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+      color: var(--primary-dark);
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background-color: #eceff1;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-gap: 1.25rem;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-gap: 1.5rem;
+    }
+
+    .testimonial {
+      background-color: var(--white);
+      border-radius: 1rem;
+      padding: 1.25rem;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+      font-size: 0.9rem;
+    }
+
+    .testimonial p {
+      margin: 0 0 0.5rem;
+      color: var(--text-main);
+    }
+
+    .testimonial-footer {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .resources-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-gap: 1rem;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 2rem;
+    }
+
+    .resources-list li {
+      background-color: var(--white);
+      border-radius: 0.9rem;
+      padding: 0.8rem 0.9rem;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+    }
+
+    .resources-list span.title {
+      font-weight: 500;
+      color: var(--primary-dark);
+    }
+
+    .subtle-link {
+      font-size: 0.8rem;
+      color: var(--primary);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .cta-banner {
+      background: linear-gradient(135deg, #37474f, #263238);
+      color: var(--white);
+      border-radius: 1.25rem;
+      padding: 1.75rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18);
+    }
+
+    .cta-banner h2 {
+      margin: 0;
+      font-size: 1.35rem;
+    }
+
+    .cta-banner p {
+      margin: 0.35rem 0 0;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .cta-banner-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .cta-banner .phone-highlight {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    footer {
+      background-color: #263238;
+      color: rgba(255, 255, 255, 0.85);
+      padding: 1.75rem 1.25rem 1.25rem;
+      font-size: 0.85rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-meta {
+      opacity: 0.8;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      opacity: 0.9;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .services-grid,
+      .reasons-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .testimonials-grid,
+      .resources-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .cta-banner {
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        position: static;
+      }
+
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header-contact {
+        text-align: left;
+      }
+
+      .hero {
+        padding-top: 1.75rem;
+      }
+
+      section {
+        padding: 2rem 1.1rem;
+      }
+
+      .services-grid,
+      .reasons-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .cta-banner {
+        padding: 1.5rem 1.1rem;
+      }
+
+      .hero-main h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Landing Page Loaded</h1>
-  <p>Please replace this placeholder with the full HTML content provided earlier.</p>
+  <div class="page">
+    <header>
+      <div class="header-inner">
+        <div class="logo-area">
+          <h1>Serenity Memorial Care</h1>
+          <p>Compassionate funeral &amp; memorial services in your community</p>
+        </div>
+        <div class="header-contact">
+          <span class="phone">📞 <a href="tel:+15551234567" aria-label="Call us now">Call 24/7: (555) 123-4567</a></span>
+          <span class="badge-24-7">Immediate assistance • Day or night</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO / TOP SECTION -->
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-inner">
+          <div class="hero-main">
+            <h2 id="hero-heading">Compassionate Funeral &amp; Memorial Services You Can Trust</h2>
+            <p>
+              We understand how difficult it is to say goodbye. Our experienced, caring team is here to help you
+              honour your loved one with a meaningful service, while easing the burden on your family.
+            </p>
+
+            <ul class="hero-list">
+              <li><span class="bullet">•</span> Gentle guidance through every step of the process</li>
+              <li><span class="bullet">•</span> Transparent pricing with no hidden fees</li>
+              <li><span class="bullet">•</span> Services tailored to your family’s wishes and traditions</li>
+            </ul>
+
+            <div class="hero-ctas">
+              <a href="#contact-form" class="btn btn-primary">Schedule a Free Consultation</a>
+              <a href="#services" class="btn btn-secondary">View Our Services</a>
+            </div>
+
+            <p class="hero-note">
+              Prefer to speak with someone now? Call us anytime at
+              <strong><a href="tel:+15551234567">(555) 123-4567</a></strong>.
+            </p>
+          </div>
+
+          <!-- CONTACT FORM CARD -->
+          <aside class="hero-form-card" aria-label="Request a call back">
+            <h3>Need Immediate Support?</h3>
+            <p>Share a few details, and a funeral director will contact you as soon as possible.</p>
+
+            <form id="contact-form" action="#" method="post" novalidate>
+              <div class="form-group">
+                <label for="name">Your Name *</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email (optional)</label>
+                <input type="email" id="email" name="email" />
+              </div>
+
+              <div class="form-group">
+                <label for="service">Type of Service</label>
+                <select id="service" name="service">
+                  <option value="">Please select</option>
+                  <option value="immediate-need">Immediate Need</option>
+                  <option value="traditional-funeral">Traditional Funeral</option>
+                  <option value="cremation">Cremation Service</option>
+                  <option value="memorial">Memorial / Celebration of Life</option>
+                  <option value="pre-planning">Pre-Planning</option>
+                  <option value="other">Other / Not Sure</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">How can we support you?</label>
+                <textarea id="message" name="message" placeholder="Share any details you feel comfortable sharing."></textarea>
+                <p class="helper-text">Your information is kept private and handled with care.</p>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Request a Call Back
+              </button>
+            </form>
+          </aside>
+        </div>
+      </section>
+
+      <!-- SERVICES SECTION -->
+      <section id="services" aria-labelledby="services-heading">
+        <div class="section-inner">
+          <div class="section-heading">
+            <h2 id="services-heading">Our Funeral &amp; Memorial Services</h2>
+            <p>
+              We offer a range of services to help you honour your loved one in a way that reflects their life,
+              beliefs, and your family’s wishes.
+            </p>
+          </div>
+
+          <div class="services-grid">
+            <article class="card">
+              <span class="pill">Traditional Funerals</span>
+              <h3>Personalised Funeral Services</h3>
+              <p>
+                Create a meaningful ceremony with visitation, service, and burial arrangements. We handle the details,
+                from music and readings to transportation and coordination.
+              </p>
+            </article>
+
+            <article class="card">
+              <span class="pill">Cremation</span>
+              <h3>Dignified Cremation Options</h3>
+              <p>
+                From simple cremation to services with viewing and memorials, we offer flexible, respectful options to
+                fit your needs and preferences.
+              </p>
+            </article>
+
+            <article class="card">
+              <span class="pill">Memorial Services</span>
+              <h3>Celebrations of Life</h3>
+              <p>
+                Honour memories with intimate gatherings or larger celebrations. We can help you plan unique tributes
+                that truly reflect your loved one.
+              </p>
+            </article>
+
+            <article class="card">
+              <span class="pill">Pre-Planning</span>
+              <h3>Plan Ahead With Peace of Mind</h3>
+              <p>
+                Ease future emotional and financial stress for your family. Our team can help you document your wishes
+                and explore payment options.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHY FAMILIES TRUST US -->
+      <section aria-labelledby="trust-heading">
+        <div class="section-inner">
+          <div class="section-heading">
+            <h2 id="trust-heading">Why Families Trust Serenity Memorial Care</h2>
+            <p>
+              Families choose us for our gentle guidance, professionalism, and commitment to honouring every life with
+              dignity and respect.
+            </p>
+          </div>
+
+          <div class="reasons-grid">
+            <article class="card">
+              <h3>Compassionate, Experienced Team</h3>
+              <p>
+                Our licensed funeral directors and support staff are dedicated to listening, supporting, and guiding you
+                at your own pace.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Transparent Pricing</h3>
+              <p>
+                We provide clear, written estimates and take time to explain all costs. There are no hidden fees or
+                unexpected charges.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Comforting Facilities</h3>
+              <p>
+                Calm, well-maintained spaces designed to help your family gather, reflect, and remember in comfort.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Available 24/7</h3>
+              <p>
+                Whether you need immediate assistance or have questions after hours, we are here for you, day or night.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS & RESOURCES -->
+      <section aria-labelledby="stories-heading">
+        <div class="section-inner">
+          <div class="section-heading">
+            <h2 id="stories-heading">What Families Are Saying</h2>
+            <p>
+              We are honoured to support families during some of life’s most difficult moments.
+            </p>
+          </div>
+
+          <div class="testimonials-grid">
+            <figure class="testimonial">
+              <p>
+                “The staff was incredibly kind and patient. They walked us through each step and made sure we felt
+                supported and informed. We’re so grateful for the care they showed our family.”
+              </p>
+              <figcaption class="testimonial-footer">— Maria T.</figcaption>
+            </figure>
+
+            <figure class="testimonial">
+              <p>
+                “Professional, respectful, and compassionate from start to finish. They handled everything with dignity
+                and helped us create a beautiful service for our father.”
+              </p>
+              <figcaption class="testimonial-footer">— James R.</figcaption>
+            </figure>
+          </div>
+
+          <div class="section-heading" style="margin-top: 2.5rem; margin-bottom: 1.5rem;">
+            <h2>Helpful Planning Resources</h2>
+            <p>
+              Use these free resources to help you navigate decisions and next steps, whether you’re planning ahead or
+              facing an immediate need.
+            </p>
+          </div>
+
+          <ul class="resources-list">
+            <li>
+              <span class="title">Funeral Planning Checklist</span>
+              <span class="subtle-link">Download</span>
+            </li>
+            <li>
+              <span class="title">Guide to Cremation Options</span>
+              <span class="subtle-link">Download</span>
+            </li>
+            <li>
+              <span class="title">Understanding Costs &amp; Payment Options</span>
+              <span class="subtle-link">View</span>
+            </li>
+            <li>
+              <span class="title">Coping with Grief &amp; Loss</span>
+              <span class="subtle-link">Read</span>
+            </li>
+          </ul>
+
+          <div class="cta-banner" aria-label="Get support today">
+            <div>
+              <h2>We’re Here to Support You Today</h2>
+              <p>
+                Whether you need immediate assistance or are planning for the future, our team is ready to listen and
+                help.
+              </p>
+            </div>
+            <div class="cta-banner-actions">
+              <a href="tel:+15551234567" class="btn btn-primary">
+                Call Now for Immediate Support
+              </a>
+              <a href="#contact-form" class="btn btn-secondary">
+                Schedule a Free Consultation
+              </a>
+              <span class="phone-highlight">📞 (555) 123-4567</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-meta">
+          &copy; <span id="year"></span> Serenity Memorial Care. All rights reserved.
+        </div>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Simple script to keep the footer year current
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
